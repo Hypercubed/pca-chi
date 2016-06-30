@@ -1,0 +1,11 @@
+{
+	"name": "PCA",
+	"title": "PCA Chart",
+	"description": "example by Thor",
+	"resources": [
+		"pca_input.txt",
+		"metadata.txt"
+	],
+	"image": "thumbnail.png",
+	"readme": "README.md"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "thor-chi",
+  "version": "1.0.0",
+  "description": "Project X examples by Thor",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "visualization",
+    "pca"
+  ],
+  "author": "Thor Wahlestedt",
+  "license": "MIT",
+  "jspm": {
+    "peerDependencies": {
+      "ml-pca": "npm:ml-pca@^1.1.1"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thorWahlestedt/thor-chi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thorWahlestedt/thor-chi/issues"
+  },
+  "homepage": "https://github.com/thorWahlestedt/thor-chi#readme"
+}
