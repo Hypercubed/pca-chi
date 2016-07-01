@@ -2,6 +2,7 @@
 
 import d3 from 'd3';
 import PCA from 'ml-pca';
+import Matrix from 'ml-matrix';
 
 import PCAChart from './pca-chart';
 import pcaHTML from './pca.html!text';
@@ -9,44 +10,55 @@ import pcaHTML from './pca.html!text';
 function controller () {
   const $ctrl = this;
 
-  const num = 4;
-
-  const chart = new PCAChart().width(800 / 3).height(400 / 3); // (of 1) width:800, height:400
+  let metaData = [];
+  let pcaOutput = [];
+  let theVariance = [];
+  const color = d3.scale.category20();
 
   return Object.assign($ctrl, {
+    keys: [],
+    meta: 'Treatment',
+    dims: 3,
     editorOptions: {
       data: $ctrl.dataPackage,
-      onChange: draw
+      onChange: update
     },
     draw,
-    $onInit: draw
+    $onInit: update
   });
 
+  function update () {
+    $ctrl.keys = Object.keys($ctrl.dataPackage.resources[1].data[0]);
+
+    let pcaInput = $ctrl.dataPackage.resources[0].data.table.map(r => r.map(Number));
+
+    pcaInput = new Matrix(pcaInput).transpose();
+
+    const pca = new PCA(pcaInput, {scale: true});
+    // const model = JSON.stringify(pca.toJSON());
+    // const newpca = PCA.load(JSON.parse(model));
+    pcaOutput = pca.predict(pcaInput);
+    theVariance = pca.getExplainedVariance();
+    draw();
+  }
+
   function draw () {
-    const pcaInput = $ctrl.dataPackage.resources[0].data = d3.csv.parseRows($ctrl.dataPackage.resources[0].content);
-    $ctrl.dataPackage.resources[1].data = d3.csv.parseRows($ctrl.dataPackage.resources[1].content);
-
-    pcaInput.forEach(d => {
-      d[0] = Number(d[0]);
-      d[1] = Number(d[1]);
-      d[2] = Number(d[2]);
-    });
-    console.log(pcaInput);
-    console.log($ctrl.dataPackage.resources);
-
-    const pca = new PCA($ctrl.dataPackage.resources[0].data, {scale: true});
-    const model = JSON.stringify(pca.toJSON());
-    const newpca = PCA.load(JSON.parse(model));
-    const out = newpca.predict($ctrl.dataPackage.resources[0].data);
-
-    console.log(out);
+    metaData = $ctrl.dataPackage.resources[1].data;
+    // $ctrl.meta
+    // $ctrl.dims
+    const num = $ctrl.dims;
+    const chart = new PCAChart()
+      .width((1100 / num) - 50)
+      .height((550 / num) - 25 - (50 / num))
+      .variance(theVariance)
+      .color(d => color(d[$ctrl.meta])); // (of 1) width:800, height:400
 
     const x = [];
-    for (let i = 0; i < num - 1; i++) {
-      for (let j = 0; j < num - 1; j++) {
+    for (let i = 0; i < num; i++) {
+      for (let j = 0; j < num; j++) {
         const data = [i, j];
-        data.pcaData = out;
-        data.metaData = $ctrl.dataPackage.resources[1].data;
+        data.pcaData = pcaOutput;
+        data.metaData = metaData;
         x.push(data);
       }
     }
@@ -57,8 +69,8 @@ function controller () {
 
     const svg = d3.select('#_examples_pca__chart')
       .append('svg')
-      .attr('width', 900)
-      .attr('height', 500);
+      .attr('width', 1200)
+      .attr('height', 600);
 
     svg.selectAll('g')
       .data(x)

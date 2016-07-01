@@ -16,6 +16,9 @@
       "ml-pca": "npm:ml-pca@^1.1.1"
     }
   },
+  "devDependencies": {
+    "xo": "*"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thorWahlestedt/thor-chi.git"
@@ -23,5 +26,38 @@
   "bugs": {
     "url": "https://github.com/thorWahlestedt/thor-chi/issues"
   },
-  "homepage": "https://github.com/thorWahlestedt/thor-chi#readme"
+  "homepage": "https://github.com/thorWahlestedt/thor-chi#readme",
+  "xo": {
+    "esnext": true,
+    "space": 2,
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "ignores": [
+      "app/jspm_packages/**",
+      "app/system.config.js",
+      "*.js",
+      "dataset/**",
+      "!dataset/example/**"
+    ],
+    "rules": {
+      "space-before-function-paren": [
+        2,
+        {
+          "anonymous": "always",
+          "named": "always"
+        }
+      ],
+      "no-warning-comments": 0,
+      "babel/new-cap": [
+        2,
+        {
+          "capIsNewExceptions": [
+            "Polymer"
+          ]
+        }
+      ]
+    }
+  }
 }

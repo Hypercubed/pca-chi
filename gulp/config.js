@@ -3,6 +3,9 @@ export default {
     dataLink: ''
   },
   deploy: {
-    // empty to avoid accidental deploy
+    ghPages: {
+      remoteUrl: "https://github.com/thorWahlestedt/thor-chi.git",
+      branch: "gh-pages"
+    }
   }
 };

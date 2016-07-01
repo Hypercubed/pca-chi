@@ -1,3 +1,3 @@
-# This is a PCA chart
+What do I even put here?
 
-by [Thor](http://github.com/thorWahlestedt)
+by [Thor Wahlestedt](http://github.com/thorWahlestedt)
