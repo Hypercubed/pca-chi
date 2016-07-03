@@ -18,6 +18,6 @@ export default angular
       })
       .when('/examples/pca', {
         template: '<pca data-package="$resolve.dataPackage"></pca>',
-        datapackageUrl: 'components/examples/pca/datapackage.json'
+        datapackageUrl: 'data/datapackage.json'
       });
   }]);

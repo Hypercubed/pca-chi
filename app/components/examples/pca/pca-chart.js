@@ -5,6 +5,10 @@ import d3Tip from 'd3-tip';
 
 import './pca.css!';
 
+function metaList (metadata) {
+  return Object.keys(metadata).map(k => `${k}: ${metadata[k]}`).join('<br />');
+}
+
 export default function Chart () {
   let width = 900;
   let height = 450;
@@ -20,12 +24,12 @@ export default function Chart () {
       const metaData = data.metaData;
       const pcaData = data.pcaData;
       const tip = d3Tip().attr('class', 'd3-tip')
-        .offset([0, -10])
+        .offset([-10, 0])
         .html((d, i) => `
-        <strong>Coordinates:</strong> <span style=${'color'}:${color(metaData[i])}>(${d[firstCol]}, ${d[secondCol]})</span>
-        <br />
-        <strong>Treatment:</strong>
-        <span>${metaData[i].Treatment}</span>
+        <strong>Coordinates:</strong>
+        <span style="color:${color(metaData[i])}">(${[d[firstCol], d[secondCol]]})</span>
+        <p />
+        ${metaList(metaData[i])}
       `);
       const xScale = d3.scale.linear().domain(d3.extent(pcaData, d => d[firstCol])).range([0, width]);
       const yScale = d3.scale.linear().domain(d3.extent(pcaData, d => d[secondCol])).range([height, 0]);
@@ -55,6 +59,7 @@ export default function Chart () {
            .style('font-weight', 'bold')
            .style('text-decoration', 'underline')
            .text(`PCA ${secondCol + 1}`);
+
         svg.append('text')
            .attr('x', locX + ((width / 2) - 70))
            .attr('y', locY - 10)

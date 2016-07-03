@@ -1,0 +1,15 @@
+{
+	"name": "Series GSE5325",
+	"title": "Poor prognosis in cancer is associated with a expression signature of aberrant PTEN tumor suppressor pathway activity",
+	"description": "[PCA to the 8,534 probes on the microarrays with expression measurements for all 105 samples](http://www.nature.com/nbt/journal/v26/n3/full/nbt0308-303.html)",
+	"resources": [
+		"./GSE5325.matrix",
+		"./GSE5325.tsv"
+	],
+	"image": "thumbnail.png",
+	"readme": "README.md",
+	"sources": [{
+	  "name": "NCBI",
+	  "web": "http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE5325"
+	}]
+}

@@ -22,8 +22,8 @@ npm install # jspm install is run post-install by npm
 ### Install this Project
 
 ```sh
-git clone https://github.com/thorWahlestedt/thor-chi dataset/thor/
-gulp dev --dataset=./dataset/thor/  # navigate to http://localhost:9000
+git clone https://github.com/thorWahlestedt/thor-chi dataset/thor-chi/
+gulp dev --dataset=./dataset/thor-chi/  # navigate to http://localhost:9000
 ```
 
 ## License

@@ -4,9 +4,10 @@
   <h2>{{$ctrl.dataPackage.title}}</h2>
   <div marked="$ctrl.dataPackage.description"></div>
 
-  <label># dims: </label><input type="number" min="1" max="7" ng-model="$ctrl.dims" ng-change="$ctrl.draw()"></input>
-  <label>meta: </label>
-  <select ng-model="$ctrl.meta" required="true" ng-options="key for key in $ctrl.keys" ng-change="$ctrl.draw()"></select>
+  <label># dims: </label>
+  <input type="number" class="form-control" min="1" max="7" ng-model="$ctrl.dims" ng-change="$ctrl.draw()"></input>
+  <label>color by: </label>
+  <select class="form-control" ng-model="$ctrl.meta" required="true" ng-options="key for key in $ctrl.keys" ng-change="$ctrl.draw()"></select>
 
   <div id="_examples_pca__chart" class="_examples_pca__pca"></div>
 

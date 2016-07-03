@@ -29,14 +29,13 @@ function controller () {
 
   function update () {
     $ctrl.keys = Object.keys($ctrl.dataPackage.resources[1].data[0]);
+    $ctrl.meta = $ctrl.keys[1];
 
     let pcaInput = $ctrl.dataPackage.resources[0].data.table.map(r => r.map(Number));
 
     pcaInput = new Matrix(pcaInput).transpose();
 
-    const pca = new PCA(pcaInput, {scale: true});
-    // const model = JSON.stringify(pca.toJSON());
-    // const newpca = PCA.load(JSON.parse(model));
+    const pca = new PCA(pcaInput, {scale: false, center: true});
     pcaOutput = pca.predict(pcaInput);
     theVariance = pca.getExplainedVariance();
     draw();
