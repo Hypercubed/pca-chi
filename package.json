@@ -43,6 +43,7 @@
       "!dataset/example/**"
     ],
     "rules": {
+      "import/no-extraneous-dependencies": 0,
       "space-before-function-paren": [
         2,
         {

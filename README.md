@@ -1,4 +1,4 @@
-# Project X example by Thor Wahlestedt
+# Project χ PCA Visualization
 
 ## About Project χ
 
@@ -15,22 +15,23 @@ This project relies on the [Project χ platform](https://github.com/Hypercubed/P
 ```sh
 git clone https://github.com/Hypercubed/Project-Chi.git
 cd Project-Chi
-git checkout tags/v1.0.0-beta-3  # ensure you are using the same version of Project χ
+git checkout tags/v1.0.0-beta-5  # ensure you are using the same version of Project χ
 npm install # jspm install is run post-install by npm
 ```
 
 ### Install this Project
 
 ```sh
-git clone https://github.com/thorWahlestedt/thor-chi dataset/thor-chi/
-gulp dev --dataset=./dataset/thor-chi/  # navigate to http://localhost:9000
+git clone https://github.com/Hypercubed/pca-chi dataset/pca-chi/
+gulp dev --dataset=./dataset/pca-chi/  # navigate to http://localhost:9000
 ```
 
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 
-Copyright (c) Thor Wahlestedt
+Original work Copyright (c) 2016 Thor Wahlestedt
+Modified work Copyright (c) 2016 RIKEN, Japan.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

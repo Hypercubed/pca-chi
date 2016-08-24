@@ -1,7 +1,7 @@
 export default {
   deploy: {
     ghPages: {
-      remoteUrl: 'https://github.com/Hypercubed/thor-chi.git',
+      remoteUrl: 'https://github.com/Hypercubed/pca-chi.git',
       branch: 'gh-pages'
     }
   },
