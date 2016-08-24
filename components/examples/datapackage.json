@@ -1,0 +1,11 @@
+{
+  "name": "Index",
+  "title": "Example PCA Visualizations",
+  "description": "Examples of interactive PCA visualizations using the Project-χ framework",
+  "resources": [
+    {
+      "path": "../../data/datapackage.json",
+      "link": "#/examples/pca/"
+    }
+  ]
+}
