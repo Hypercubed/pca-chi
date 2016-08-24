@@ -12,6 +12,7 @@
   "author": "Thor Wahlestedt",
   "license": "MIT",
   "jspm": {
+    "devDependencies": {},
     "peerDependencies": {
       "ml-pca": "npm:ml-pca@^1.1.1"
     }

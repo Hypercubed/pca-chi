@@ -1,7 +1,4 @@
 export default {
-  paths: {
-    dataLink: ''
-  },
   deploy: {
     ghPages: {
       remoteUrl: 'https://github.com/thorWahlestedt/thor-chi.git',
@@ -20,5 +17,8 @@ export default {
       runtime: false,
       esOptimize: true
     }
+  },
+  template: {
+    webcomponents: false
   }
 };
